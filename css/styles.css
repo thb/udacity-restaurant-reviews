@@ -119,25 +119,27 @@ nav h1 a {
   text-decoration: underline;
 }
 /* ====================== Map ====================== */
-#map {
-  height: 400px;
+#map-container {
+  background: transparent none repeat scroll 0 0;
   width: 100%;
+}
+
+#map {
   background-color: #ccc;
+}
+
+#footer {
+  bottom: 0;
 }
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  height: 55px;
   background-color: #3397db;
   align-items: center;
+  display: flex;
+  justify-content: center;
 }
-.filter-options h2 {
-  color: white;
-  font-size: 1rem;
-  font-weight: normal;
-  line-height: 1;
-  margin: 0 20px;
-}
+
 .filter-options select {
   background-color: white;
   border: 1px solid #fff;
@@ -151,24 +153,29 @@ nav h1 a {
 }
 
 /* ====================== Restaurant Listing ====================== */
+#restaurants-list-wrapper {
+  width: 100%;
+}
+
 #restaurants-list {
-  display: flex;
-  flex-wrap: wrap;
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
-  padding: 30px 15px 60px;
+  padding: 30px 15px;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial, sans-serif;
-  margin: 15px;
+  margin: 0 0 15px 0;
   min-height: 380px;
   padding: 25px 30px;
   text-align: left;
-  width: 270px;
+  flex-grow: 2;
+  width: 100%;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
@@ -206,15 +213,6 @@ nav h1 a {
 }
 
 /* ====================== Restaurant Details ====================== */
-.inside #map-container {
-  background: blue none repeat scroll 0 0;
-}
-.inside #map {
-  background-color: #ccc;
-}
-.inside #footer {
-  bottom: 0;
-}
 #restaurant-name {
   color: #f18200;
   font-family: Arial, sans-serif;
@@ -269,7 +267,7 @@ nav h1 a {
   display: block;
   list-style-type: none;
   overflow: hidden;
-  margin: 10px;
+  margin: 10px 0;
   padding: 20px;
   position: relative;
 }
