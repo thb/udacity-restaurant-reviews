@@ -1,3 +1,21 @@
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("sw.js").then(
+      function(registration) {
+        // Registration was successful
+        console.log(
+          "ServiceWorker registration successful with scope: ",
+          registration.scope
+        );
+      },
+      function(err) {
+        // registration failed :(
+        console.log("ServiceWorker registration failed: ", err);
+      }
+    );
+  });
+}
+
 const MAPBOX_API_KEY =
   "pk.eyJ1IjoidGhiMTkiLCJhIjoiY2l4cmpnNGQwMDAzMjJxb2ZoZGxzZXlyZiJ9.LN-_pw922wNuBxVVt7xzPw";
 
@@ -173,9 +191,10 @@ createRestaurantHTML = restaurant => {
   const image = document.createElement("img");
   image.className = "restaurant-img";
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.setAttribute("alt", restaurant.name);
   li.append(image);
 
-  const name = document.createElement("h1");
+  const name = document.createElement("h2");
   name.innerHTML = restaurant.name;
   li.append(name);
 
